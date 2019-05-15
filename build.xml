@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
-<project name="java-junit-travis-project" default="test" basedir="Travis">
+<project name="java-junit-travis-project" default="test" basedir=".">
  <property name="main.build.dir" value="build/main" />
  <property name="main.src.dir" value="src" />
  <property name="test.build.dir" value="build/test" />
  <property name="test.src.dir" value="src" />
 
  <path id="classpath.base">
-  <fileset dir="Travis" includes="**/*.jar" />
+  <fileset dir="." includes="**/*.jar" />
  </path>
 
  <path id="classpath.test">
-  <fileset dir="Travis" includes="**/*.jar" />
+  <fileset dir="." includes="**/*.jar" />
   <pathelement location="lib/junit-4.11.jar" />
   <pathelement location="lib/hamcrest-core-1.3.jar" />
   <pathelement location="${main.build.dir}"/>
@@ -56,7 +56,7 @@
  <!-- To run this: use "ant clean" -->
  <target name="clean">
   <delete>
-    <fileset dir="/Travis" includes="**/*.class" />
+    <fileset dir="${basedir}" includes="**/*.class" />
   </delete>
   <echo message="clean done" />
   </target>
